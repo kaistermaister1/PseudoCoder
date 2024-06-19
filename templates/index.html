@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pseudocode Runner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <section id="input-section">
+            <h2>Enter Pseudocode</h2>
+            <textarea id="pseudocode-input" placeholder="Write your pseudocode here..."></textarea><br>
+            <label for="language-select">Select Language:</label>
+            <select id="language-select">
+                <option value="python">Python</option>
+                <option value="cpp">C++</option>
+            </select><br>
+            <button onclick="runPseudocode()">Run</button>
+        </section>
+        <section id="output-section">
+            <h2>Output</h2>
+            <pre id="output"></pre>
+            <input id="input-box" type="text" class="hidden" onkeydown="if(event.key === 'Enter') handlePromptInput()">
+        </section>
+        
+        <section id="code-section" class="hidden">
+            <h2>Generated Code</h2>
+            <pre id="generated-code"></pre>
+        </section>
+    </div>
+    <div class="button-container">
+        <button id="toggle-code-button" onclick="toggleGeneratedCode()">Show Generated Code</button>
+    </div>
+
+    <div class="examples-container">
+        <div class="examples">
+            <h2>Examples of Pseudocode</h2>
+            <p><strong>Example 1:</strong></p>
+            <pre class="example-code"><code>print prime numbers from 1 to 100</code></pre>
+            <p><strong>Example 2:</strong></p>
+            <pre class="example-code"><code>def is-palindrome:
+    ignore spaces and punctuation
+    for pos in string:
+       if string[-pos] is not equal string[pos]: false
+     true
+
+is-palindrome('race car') should be true
+is-palindrome('foobaroof') should be false</code></pre>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
